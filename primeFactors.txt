@@ -1,0 +1,16 @@
+#primeFactors takes a positive integer n and returns a dictionary
+#whose keys are the prime factors of n and whose values are the
+#exponents of the factors. E.g., primeFactors(24) returns {'2': 3, '3': 1}
+#because 24 = 2*2*2*3.
+
+def primeFactors(n):
+    factors = {}
+    i = 2
+    while n != 1:
+        if n % i == 0:
+            factors.update({str(i): 0})
+            while n % i == 0:
+                n = n//i
+                factors[str(i)] += 1
+        i += 1
+    return factors
